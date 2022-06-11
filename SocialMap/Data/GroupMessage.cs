@@ -1,14 +1,20 @@
-﻿namespace SocialMap.Data
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace SocialMap.Data
 {
     public class GroupMessage
     {
         public int Id { get; set; }
-        public Group GroupId { get; set; }
-        public User UserId { get; set; }
 
-        public String Message { get; set; }
+        [ForeignKey("Id")]
+        public Group Group { get; set; }
 
-        public String Type { get; set; }
+        [ForeignKey("Id")]
+        public User User { get; set; }
+
+        public String? Message { get; set; }
+
+        public String? Type { get; set; }
 
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
